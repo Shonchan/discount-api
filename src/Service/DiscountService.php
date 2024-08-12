@@ -14,9 +14,6 @@ class DiscountService
     {
     }
 
-    /**
-     * @throws \Exception
-     */
     public function getTotalDiscount(Trip $trip): DiscountResponse
     {
         $totalDiscount = 0;
@@ -31,7 +28,10 @@ class DiscountService
         $earlyBookingDiscount = $discounts[EarlyBookingDiscount::class]->calculate();
         $totalDiscount += $earlyBookingDiscount;
 
-        return new DiscountResponse($totalDiscount, [
+        return new DiscountResponse(
+            $trip->getBasePrice() - $totalDiscount,
+            $totalDiscount,
+            [
             ChildrenDiscount::class => $childrenDiscount,
             EarlyBookingDiscount::class => $earlyBookingDiscount
         ]);

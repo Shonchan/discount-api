@@ -17,13 +17,13 @@ class DiscountController extends AbstractController
     /**
      * @throws \Exception
      */
-    #[Route(path: '/api/v1/discount/calculate', methods: ['GET', 'POST'])]
+    #[Route(path: '/api/v1/discount/calculate', methods: ['POST'])]
     public function calculate(Request $request, DiscountService $service): Response
     {
         $denormalizer = new ArrayDenormalizer();
         $normalizer = new ObjectNormalizer();
         $serializer = new Serializer([$normalizer, $denormalizer]);
-        $trip = $serializer->denormalize($request->query->all(), Trip::class);
+        $trip = $serializer->denormalize($request->request->all(), Trip::class);
 
         return $this->json($service->getTotalDiscount($trip));
     }

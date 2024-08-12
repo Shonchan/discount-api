@@ -6,8 +6,8 @@ use Symfony\Component\Validator\Constraints\Type;
 
 class Trip
 {
-    #[Type('float')]
-    private float $basePrice;
+    #[Type('int')]
+    private int $basePrice;
     #[Type('string')]
     private string $tripStartDate;
     #[Type('string')]
@@ -15,14 +15,16 @@ class Trip
     #[Type('string')]
     private string $birthDate;
 
-    public function getBasePrice(): float
+    public function getBasePrice(): int
     {
         return $this->basePrice;
     }
 
-    public function setBasePrice(float $basePrice): void
+    public function setBasePrice(int $basePrice): static
     {
         $this->basePrice = $basePrice;
+
+        return $this;
     }
 
     public function getTripStartDate(): string
@@ -30,9 +32,11 @@ class Trip
         return $this->tripStartDate;
     }
 
-    public function setTripStartDate(string $tripStartDate): void
+    public function setTripStartDate(string $tripStartDate): static
     {
         $this->tripStartDate = $tripStartDate;
+
+        return $this;
     }
 
     public function getPaymentDate(): string
@@ -40,9 +44,11 @@ class Trip
         return $this->paymentDate;
     }
 
-    public function setPaymentDate(string $paymentDate): void
+    public function setPaymentDate(string $paymentDate): static
     {
         $this->paymentDate = $paymentDate;
+
+        return $this;
     }
 
     public function getBirthDate(): string
@@ -50,9 +56,11 @@ class Trip
         return $this->birthDate;
     }
 
-    public function setBirthDate(string $birthDate): void
+    public function setBirthDate(string $birthDate): static
     {
         $this->birthDate = $birthDate;
+
+        return $this;
     }
 
 

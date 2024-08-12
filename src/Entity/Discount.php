@@ -6,8 +6,8 @@ use Symfony\Component\Validator\Constraints\Type;
 
 abstract class Discount implements IDiscount
 {
-    #[Type('float')]
-    private float $basePrice;
+    #[Type('int')]
+    private int $basePrice;
     #[Type('\DateTimeInterface')]
     private \DateTimeInterface $tripStartDate;
     #[Type('\DateTimeInterface')]
@@ -15,12 +15,12 @@ abstract class Discount implements IDiscount
     #[Type('\DateTimeInterface')]
     private \DateTimeInterface $birthDate;
 
-    public function getBasePrice(): float
+    public function getBasePrice(): int
     {
         return $this->basePrice;
     }
 
-    public function setBasePrice(float $basePrice): void
+    public function setBasePrice(int $basePrice): void
     {
         $this->basePrice = $basePrice;
     }
