@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace Entity;
+namespace App\Tests\Entity;
 
 use App\Entity\ChildrenDiscount;
 use App\Entity\Trip;

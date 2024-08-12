@@ -2,17 +2,12 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints\Type;
 
 class Trip
 {
-    #[Type('int')]
     private int $basePrice;
-    #[Type('string')]
     private string $tripStartDate;
-    #[Type('string')]
     private string $paymentDate;
-    #[Type('string')]
     private string $birthDate;
 
     public function getBasePrice(): int

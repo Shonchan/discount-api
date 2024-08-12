@@ -2,17 +2,11 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints\Type;
-
 abstract class Discount implements IDiscount
 {
-    #[Type('int')]
     private int $basePrice;
-    #[Type('\DateTimeInterface')]
     private \DateTimeInterface $tripStartDate;
-    #[Type('\DateTimeInterface')]
     private \DateTimeInterface $paymentDate;
-    #[Type('\DateTimeInterface')]
     private \DateTimeInterface $birthDate;
 
     public function getBasePrice(): int
